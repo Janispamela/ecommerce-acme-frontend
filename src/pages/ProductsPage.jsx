@@ -1,10 +1,11 @@
 import { useEffect, useContext } from "react";
-
+import ProductsContext from "../context/ProductsContext";
 
 const ProductsPage = () => {
-  
+  const { products, getProductsAction } = useContext(ProductsContext);
+
   useEffect(() => {
-    console.log("ProductsPage - useEffect");
+    getProductsAction();
   }, []);
 
   return (
