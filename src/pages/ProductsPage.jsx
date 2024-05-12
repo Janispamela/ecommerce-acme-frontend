@@ -1,4 +1,12 @@
+import { useEffect, useContext } from "react";
+
+
 const ProductsPage = () => {
+  
+  useEffect(() => {
+    console.log("ProductsPage - useEffect");
+  }, []);
+
   return (
       <><header className="row">
       <article className="col">
