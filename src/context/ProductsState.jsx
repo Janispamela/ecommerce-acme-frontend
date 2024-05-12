@@ -17,10 +17,12 @@ const ProductsState = ({ children }) => {
     }, []);
 
 
-  return 
-    <ProductsContext.Provider value={{ products: globalState.products, getProductsAction }}>
+  return (
+    <ProductsContext.Provider 
+    value={{ products: globalState.products, getProductsAction }}>
         {children}
     </ProductsContext.Provider>
+  );
 };
 
 ProductsState.propTypes = {

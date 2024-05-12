@@ -3,7 +3,7 @@ const ProductsReducer =  (globalState, action) => {
         case "GET_PRODUCTS":
             return {
                 ...globalState,
-                movies: action.payload,
+                products: action.payload,
              };
 
              default:
