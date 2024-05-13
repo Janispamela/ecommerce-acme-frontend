@@ -13,7 +13,12 @@ const ProductsState = ({ children }) => {
 
     const getProductsAction = useCallback(async () => {
         const resp = await getProductsService();
-        console.log(resp);
+        //console.log(resp.data.data);
+        const action = {
+            type: "GET_PRODUCTS",
+            payload: resp.data.data,
+        }
+        dispatch(action);
     }, []);
 
 

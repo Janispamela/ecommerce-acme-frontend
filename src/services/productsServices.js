@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const getProductsService = async () => {
-    const resp = await axios.get("http://localhost:4000/products");
+    const resp = await axios.get("https://ecommerce-acme-backend.onrender.com/products");
     return resp;
 };
 
