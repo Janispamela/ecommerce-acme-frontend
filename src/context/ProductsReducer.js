@@ -6,6 +6,12 @@ const ProductsReducer =  (globalState, action) => {
                 products: action.payload,
              };
 
+             case "GET_PRODUCT":
+                return {
+                    ...globalState,
+                    product: action.payload,
+                 };
+
              default:
                 return globalState;
     }

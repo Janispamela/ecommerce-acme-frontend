@@ -2,11 +2,12 @@ import { useReducer, useCallback } from "react";
 import ProductsContext from "./ProductsContext";
 import ProductsReducer from "./ProductsReducer";
 import PropTypes from "prop-types";
-import {getProductsService} from "../services/productsServices";
+import { getProductsService, getProductService} from "../services/productsServices";
 
 const initialState = {
     products: [],
-}
+    product: {},
+};
 
 const ProductsState = ({ children }) => {
     const [globalState, dispatch] = useReducer(ProductsReducer, initialState);
@@ -21,10 +22,28 @@ const ProductsState = ({ children }) => {
         dispatch(action);
     }, []);
 
+    
+
+    const getProductAction = useCallback(async (id) => {
+        const resp = await getProductService(id);
+        //console.log(resp.data.data);
+        
+        
+        const action = {
+            type: "GET_PRODUCT",
+            payload: resp.data.data,
+        }
+        dispatch(action);
+    }, []);
 
   return (
     <ProductsContext.Provider 
-    value={{ products: globalState.products, getProductsAction }}>
+    value={{ 
+        products: globalState.products, 
+        getProductsAction, 
+        getProductAction,
+        product: globalState.product,
+        }}>
         {children}
     </ProductsContext.Provider>
   );

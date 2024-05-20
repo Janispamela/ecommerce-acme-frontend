@@ -1,5 +1,6 @@
 import { useEffect, useContext } from "react";
 import ProductsContext from "../context/ProductsContext";
+import { NavLink } from "react-router-dom";
 
 const ProductsPage = () => {
   const { products, getProductsAction } = useContext(ProductsContext);
@@ -29,7 +30,11 @@ const ProductsPage = () => {
               <h5 className="card-title">{product.name}</h5>
               <p className="card-text">{product.price}</p>
               <div>
-                <button className="btn btn-secondary">View more...</button>
+                <NavLink 
+                className="btn btn-secondary" 
+                to={`/products/${product.id}`}>
+                  View more...
+                </NavLink>
               </div>
             </div>
           </div>
