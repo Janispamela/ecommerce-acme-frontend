@@ -1,7 +1,10 @@
-import axios from "axios"
+import axios from "axios";
+
+const URL = "https://ecommerce-acme-backend.onrender.com/products";
+//const URL = "http://localhost:4000/products";
 
 const getProductsService = async () => {
-    const resp = await axios.get("https://ecommerce-acme-backend.onrender.com/products");
+    const resp = await axios.get(`${URL}`);
     return resp;
 };
 
@@ -10,7 +13,7 @@ const getProductService = async (id) => {
     //     `https://ecommerce-acme-backend.onrender.com/products/${id}`);
     // return resp;
     const resp = await axios.get(
-         `http://localhost:4000/products/${id}`);
+         `${URL}/${id}`);
      return resp;
 
 };
