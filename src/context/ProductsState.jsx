@@ -14,11 +14,11 @@ const ProductsState = ({ children }) => {
 
     const getProductsAction = useCallback(async () => {
         const resp = await getProductsService();
-        //console.log(resp.data.data);
+       
         const action = {
             type: "GET_PRODUCTS",
             payload: resp.data.data,
-        }
+        };
         dispatch(action);
     }, []);
 
@@ -26,13 +26,12 @@ const ProductsState = ({ children }) => {
 
     const getProductAction = useCallback(async (id) => {
         const resp = await getProductService(id);
-        //console.log(resp.data.data);
-        
+                
         
         const action = {
             type: "GET_PRODUCT",
             payload: resp.data.data,
-        }
+        };
         dispatch(action);
     }, []);
 
