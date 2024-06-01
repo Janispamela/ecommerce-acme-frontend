@@ -10,7 +10,7 @@ const getProductsService = async () => {
 
 const getProductService = async (id) => {
     //const resp = await axios.get(
-    //     `https://ecommerce-acme-backend.onrender.com/products/${id}`);
+   //      "https://ecommerce-acme-backend.onrender.com/products/664007e9f4ce697eef1c45d9");
     // return resp;
     const resp = await axios.get(
          `${URL}/${id}`);

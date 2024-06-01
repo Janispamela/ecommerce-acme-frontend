@@ -22,10 +22,15 @@ const Navbar = () => {
             Products
           </NavLink>
         </li>  
+        <li className="nav-item">
+          <NavLink className="nav-link" aria-current="page" to="/login">
+            Login
+          </NavLink>
+        </li>
       </ul>
       <form className="d-flex" role="search">
         <button className="btn btn-outline-success" type="submit">
-          Login
+          Cuenta
         </button>
       </form>
     </div>
