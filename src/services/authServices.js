@@ -15,4 +15,16 @@ const loginService = async (form) => {
  return resp;
 };
 
-export { loginService };
+const registerService = async (form) => {
+
+ 
+        const resp = await axios.post(
+            "https://ecommerce-acme-backend.onrender.com/auth/registrar_usuario",
+            form
+        );
+    
+     return resp;
+    };
+
+
+export { loginService, registerService };
