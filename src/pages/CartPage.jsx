@@ -1,13 +1,26 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import ProductsContext from "../context/ProductsContext";
-
+import AuthContext from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const { cart, deleteCartProduct } = useContext(ProductsContext);
+  const { user } = useContext(AuthContext);
+
+  const [total, setTotal] = useState(0);
 
   const handleDeleteCartProduct = (id) => {
     deleteCartProduct(id);
   };
+
+  useEffect(() => {
+    const totalAcumulado = cart.reduce(
+      (acc, product) => acc + product.price,
+      0
+    );
+
+    setTotal(totalAcumulado);
+  }, [cart]);
 
   return (
     <>
@@ -48,6 +61,39 @@ const CartPage = () => {
         ))}
       </article>
     </main>
+
+    <section className="row pb-5">
+        <article className="col">
+          {cart.length > 0 ? (
+            <>
+              <p className="fs-1">Total</p>
+              <p className="fs-2">{total}</p>
+              {user.user_name ? (
+                <>
+                  {/* <PaypalCheckoutButton
+                    currency="MXN"
+                    amount={ammount}
+                    showSpinner={false}
+                  /> */}
+
+                  <button className="btn btn-success">Pay</button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="btn btn-success">
+                    Please log in to continue
+                  </Link>
+                </>
+              )}
+            </>
+          ) : (
+            <>
+              <p className="fs-1">Your cart is empty</p>
+            </>
+          )}
+        </article>
+      </section>
+
     </>
   );
 };

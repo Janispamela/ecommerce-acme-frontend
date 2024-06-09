@@ -9,7 +9,7 @@ import {
 } from "../services/authServices";
 
 const initialGlobalState = {
-  user: null,
+  user: {},
 };
 
 const AuthState = ({ children }) => {
