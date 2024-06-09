@@ -12,15 +12,28 @@ const ProductsReducer =  (globalState, action) => {
                     product: action.payload,
                  };
 
-             default:
-                return globalState;
-
-
             case "ADD_CART_PRODUCT":
                     return {
                       ...globalState,
-                      cart: [action.payload],
+                      cart: globalState.cart.find(
+                        (product) => product.id === action.payload.id
+                      )
+                        ? [...globalState.cart]
+                        : [...globalState.cart, action.payload],
                     };
+
+                    case "DELETE_CART_PRODUCT":
+                        return {
+                          ...globalState,
+                          cart: globalState.cart.filter(
+                            (product) => product.id != action.payload
+                          ),
+                        };
+                  
+                      default:
+                        return globalState;
+                    
+
     }
 };
 export default ProductsReducer;

@@ -3,8 +3,11 @@ import ProductsContext from "../context/ProductsContext";
 
 
 const CartPage = () => {
-  const { cart } = useContext(ProductsContext);
+  const { cart, deleteCartProduct } = useContext(ProductsContext);
 
+  const handleDeleteCartProduct = (id) => {
+    deleteCartProduct(id);
+  };
 
   return (
     <>
@@ -35,7 +38,7 @@ const CartPage = () => {
                       className="btn btn-danger"
                       onClick={() => handleDeleteCartProduct(item.id)}
                     >
-                      Eliminar del carrito
+                      Remove from cart
                     </button>
                   </div>
                 </div>

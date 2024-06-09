@@ -47,6 +47,13 @@ const ProductsState = ({ children }) => {
         dispatch(action);
     };
 
+    const deleteCartProduct = async (id) => {
+        dispatch({
+          type: "DELETE_CART_PRODUCT",
+          payload: id,
+        });
+      };
+
   return (
     <ProductsContext.Provider 
     value={{ 
@@ -54,6 +61,7 @@ const ProductsState = ({ children }) => {
         getProductsAction, 
         getProductAction,
         addCartProduct,
+        deleteCartProduct,
         product: globalState.product,
         cart: globalState.cart,
         }}>
