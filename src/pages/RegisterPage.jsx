@@ -1,78 +1,87 @@
-import { registerService } from "../services/authServices";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AuthContext from "../context/AuthContext";
 
 const initForm = {
-    user_name: "",
-    password: "",
-  };
+  user_name: "",
+  password: "",
+};
 
 const RegisterPage = () => {
+  const { user, registrarUsuario } = useContext(AuthContext);
 
-    const [form, setForm] = useState(initForm);
-    const [user, setUser] = useState({});
-  
-    const handleIniciarSesion = async (e) => {
+  const [form, setForm] = useState(initForm);
+  // const [user, setUser] = useState({});
 
-        e.preventDefault();
+  const handleInciarSesion = async (e) => {
+    e.preventDefault();
 
-    //    console.log(form);
+    await registrarUsuario(form);
 
-        try {
-            const resp = await registerService(form);
-            console.log(resp.data.data);
-            setUser(resp.data.data)
-        } catch (error) {
-            console.log(error.response.data.msg);
-        }
-    };
+    // console.log(form);
 
-    const handleChange = (e) => {
+    // try {
+    //   // const resp = await registerService(form);
+    //   // // console.log(resp.data.data);
+    //   // setUser(resp.data.data);
+    // } catch (error) {
+    //   console.log(error.response.data.msg);
+    // }
+  };
 
-        setForm(
-          {
-            ...form,
-            [e.target.name]: e.target.value,
-          }
-        );
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    };
-
-    return (
-      <>
-        <header className="row col">
-          <h1>Register Page</h1>
-        </header>
-        <main className="row">
-          <article className="col">
-            <form onSubmit={handleIniciarSesion}>
+  return (
+    <>
+      <header className="row col">
+        <h1>Register Page</h1>
+      </header>
+      <main className="row">
+        <article className="col">
+          <form onSubmit={handleInciarSesion}>
             <div className="mb-3">
-                <label htmlFor="inputUserName" className="form-label">
-                    User name
-                </label>
-                <input type="text" className="form-control" id="inputUserName" name="user_name" value={form.user_name} onChange={handleChange}/>
-                
+              <label htmlFor="inputUserName" className="form-label">
+                User name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="inputUserName"
+                name="user_name"
+                value={form.user_name}
+                onChange={handleChange}
+              />
             </div>
             <div className="mb-3">
-                <label htmlFor="inputPassword" className="form-label">
-                    Password
-                </label>
-                <input type="password" className="form-control" id="inputPassword" name="password" value={form.password} onChange={handleChange}/>
+              <label htmlFor="inputPassword" className="form-label">
+                Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="inputPassword"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+              />
             </div>
-            
             <button type="submit" className="btn btn-primary">
-                Create Account
+              Create Account
             </button>
-            </form>
-
-          </article>
-        </main>
-        <section className="row">
+          </form>
+        </article>
+      </main>
+      <section className="row">
         <article className="col">
           <pre>{JSON.stringify(user, null, 2)}</pre>
         </article>
-        </section>
-      </>
-    );
-  };
-  
-  export default RegisterPage;
+      </section>
+    </>
+  );
+};
+
+export default RegisterPage;

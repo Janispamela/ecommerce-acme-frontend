@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
+import {useContext} from "react"
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   return (
     <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
       <div className="container">
@@ -18,10 +21,29 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/products">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                aria-current="page"
+                to="/products"
+              >
                 Products
               </NavLink>
             </li>
+
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                aria-current="page"
+                to="/cart"
+              >
+                Cart
+              </NavLink>
+            </li>
+
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item dropdown">
@@ -32,7 +54,7 @@ const Navbar = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Account
+                {user ? user.user_name : "Account Options"}
               </a>
               <ul className="dropdown-menu dropdown-menu-end">
                 <li>

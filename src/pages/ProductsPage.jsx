@@ -3,7 +3,11 @@ import ProductsContext from "../context/ProductsContext";
 import { NavLink } from "react-router-dom";
 
 const ProductsPage = () => {
-  const { products, getProductsAction } = useContext(ProductsContext);
+  const { products, getProductsAction, addCartProduct } = useContext(ProductsContext);
+
+  const handleAgregarCarrito = (id) => {
+    addCartProduct(id);
+  };
 
   useEffect(() => {
     getProductsAction();
@@ -35,6 +39,13 @@ const ProductsPage = () => {
                 to={`/products/${product.id}`}>
                   View more...
                 </NavLink>
+                <button
+                  className="btn btn-warning"
+                  onClick={() => handleAgregarCarrito(product.id)}
+                >
+                  Add to cart
+                </button>
+
               </div>
             </div>
           </div>

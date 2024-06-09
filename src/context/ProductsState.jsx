@@ -7,6 +7,7 @@ import { getProductsService, getProductService} from "../services/productsServic
 const initialState = {
     products: [],
     product: {},
+    cart: [],
 };
 
 const ProductsState = ({ children }) => {
@@ -35,13 +36,26 @@ const ProductsState = ({ children }) => {
         dispatch(action);
     }, []);
 
+    const addCartProduct = async (id) => {
+        const resp = await getProductService(id);
+        console.log(resp.data.data);
+
+        const action = {
+            type: "ADD_CART_PRODUCT",
+            payload: resp.data.data,
+        };
+        dispatch(action);
+    };
+
   return (
     <ProductsContext.Provider 
     value={{ 
         products: globalState.products, 
         getProductsAction, 
         getProductAction,
+        addCartProduct,
         product: globalState.product,
+        cart: globalState.cart,
         }}>
         {children}
     </ProductsContext.Provider>

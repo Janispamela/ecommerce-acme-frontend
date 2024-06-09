@@ -14,6 +14,13 @@ const ProductsReducer =  (globalState, action) => {
 
              default:
                 return globalState;
+
+
+            case "ADD_CART_PRODUCT":
+                    return {
+                      ...globalState,
+                      cart: [action.payload],
+                    };
     }
 };
 export default ProductsReducer;
