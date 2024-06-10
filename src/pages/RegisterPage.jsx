@@ -70,7 +70,7 @@ const RegisterPage = () => {
               />
             </div>
             <button type="submit" className="btn btn-primary">
-              Create Account
+              Account
             </button>
           </form>
         </article>

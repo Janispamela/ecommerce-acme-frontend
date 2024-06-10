@@ -6,6 +6,7 @@ import { useCallback, useReducer } from "react";
 import {
   loginService,
   registerService,
+  renovarTokenService
 } from "../services/authServices";
 
 const initialGlobalState = {
@@ -45,6 +46,20 @@ const AuthState = ({ children }) => {
   };
 
   
+  const renovarToken = useCallback(async () => {
+    try {
+      const resp = await renovarTokenService();
+      // console.log(resp.data.data);
+      dispatch({
+        type: "INICIAR_SESION",
+        payload: resp.data.data,
+      });
+      localStorage.setItem("token", resp.data.token);
+    } catch (error) {
+      console.log(error.response.data.msg);
+    }
+  }, []);
+
   const logout = () => {
     dispatch({
       type: "LOGOUT",
@@ -53,12 +68,15 @@ const AuthState = ({ children }) => {
     localStorage.removeItem("token");
   };
 
+
   return (
     <AuthContext.Provider
       value={{
         user: globalState.user,
         iniciarSesion,
         registrarUsuario,
+         logout,
+         renovarToken,
          logout,
       }}
     >

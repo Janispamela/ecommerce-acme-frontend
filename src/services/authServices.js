@@ -26,5 +26,18 @@ const registerService = async (form) => {
      return resp;
     };
 
+    const renovarTokenService = async () => {
+        const resp = await axios.get(
+          "https://ecommerce-acme-backend.onrender.com/auth/validar_usuario",
+          {
+            headers: {
+              "x-token": localStorage.getItem("token"),
+            },
+          }
+        );
+      
+        return resp;
+      };
 
-export { loginService, registerService };
+
+export { loginService, registerService, renovarTokenService };
