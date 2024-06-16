@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import ProductsContext from "../context/ProductsContext";
 import AuthContext from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import PayPalButton from "../components/PayPalButton";
 
 const CartPage = () => {
   const { cart, deleteCartProduct } = useContext(ProductsContext);
@@ -75,8 +76,10 @@ const CartPage = () => {
                     amount={ammount}
                     showSpinner={false}
                   /> */}
-
-                  <button className="btn btn-success">Pay</button>
+                  <PayPalButton currency="MXN"
+                    amount={total}
+                    showSpinner={false}/>
+                  {/*<button className="btn btn-success">Pay</button>*/}
                 </>
               ) : (
                 <>

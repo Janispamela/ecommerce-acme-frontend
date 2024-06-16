@@ -75,7 +75,6 @@ const AuthState = ({ children }) => {
         user: globalState.user,
         iniciarSesion,
         registrarUsuario,
-         logout,
          renovarToken,
          logout,
       }}
