@@ -15,8 +15,16 @@ const PaypalCheckoutButton = ({ currency, amount, showSpinner }) => {
   // This is the main reason to wrap the PayPalButtons in a new component
   const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
 
+  //Mine - Seller
   // sb-owomf31236371@business.example.com
   // U>G0%Wzc
+
+  //Additional accounts
+ // sb-wv9lr20565334@personal.example.com
+  // pn2XFFw.
+
+  // sb-zkefr20761979@business.example.com
+  // #rBfc0W?
 
   useEffect(() => {
     dispatch({
@@ -50,7 +58,7 @@ const PaypalCheckoutButton = ({ currency, amount, showSpinner }) => {
             })
             .then((orderId) => {
               // Your code here after create the order
-              console.log("Orden de conora: " + orderId);
+              console.log("Orden de compra: " + orderId);
               return orderId;
             });
         }}
