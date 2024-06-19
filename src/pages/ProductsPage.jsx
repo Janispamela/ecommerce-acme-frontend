@@ -37,7 +37,7 @@ const ProductsPage = () => {
                 <NavLink 
                 className="btn btn-secondary" 
                 to={`/products/${product.id}`}>
-                  View more...
+                  Learn more
                 </NavLink>
                 <button
                   className="btn btn-warning"

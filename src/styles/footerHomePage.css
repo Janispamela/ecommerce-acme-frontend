@@ -1,0 +1,7 @@
+.custom-card-image {
+    max-width: 20%;
+    height: auto; /* Altura deseada para las imágenes */
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+    display: block;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+  }

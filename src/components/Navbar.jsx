@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
       <div className="container">
         <NavLink className="navbar-brand" to="/">
-          ACME CORP
+        <img src="https://i.pinimg.com/564x/72/4e/b3/724eb390b69de4d1e49689b05154f54f.jpg" alt="Logo" style={{ width: '60px', height: 'auto' }} />
         </NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
