@@ -1,82 +1,86 @@
 import AuthContext from "../context/AuthContext";
-//import { loginService } from "../services/authServices";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 const initForm = {
-    user_name: "",
-    password: "",
-  };
+  user_name: "",
+  password: "",
+};
 
 const LoginPage = () => {
+  const [form, setForm] = useState(initForm);
+  const { user, message, iniciarSesion } = useContext(AuthContext);
 
-    const [form, setForm] = useState(initForm);
-    const { user, iniciarSesion } = useContext(AuthContext);
-//    const [user, setUser] = useState({});
-  
-    const handleIniciarSesion = async (e) => {
+  useEffect(() => {
+    // Mostrar el mensaje en la consola si existe
+    if (message) {
+      console.log(message);
+    }
+  }, [message]);
 
-        e.preventDefault();
-
-        await iniciarSesion(form);
-
-    //    console.log(form);
-
-        // try {
-        //     const resp = await loginService(form);
-        //     console.log(resp.data.data);
-        //     setUser(resp.data.data)
-        // } catch (error) {
-        //     console.log(error.response.data.msg);
-        // }
-    };
-
-    const handleChange = (e) => {
-
-        setForm(
-          {
-            ...form,
-            [e.target.name]: e.target.value,
-          }
-        );
-
-    };
-
-    return (
-      <>
-        <header className="row col">
-          <h1>Login Page</h1>
-        </header>
-        <main className="row">
-          <article className="col">
-            <form onSubmit={handleIniciarSesion}>
-            <div className="mb-3">
-                <label htmlFor="inputUserName" className="form-label">
-                    User name
-                </label>
-                <input type="text" className="form-control" id="inputUserName" name="user_name" value={form.user_name} onChange={handleChange}/>
-                
-            </div>
-            <div className="mb-3">
-                <label htmlFor="inputPassword" className="form-label">
-                    Password
-                </label>
-                <input type="password" className="form-control" id="inputPassword" name="password" value={form.password} onChange={handleChange}/>
-            </div>
-            
-            <button type="submit" className="btn btn-primary">
-                Log In
-            </button>
-            </form>
-
-          </article>
-        </main>
-        <section className="row">
-        <article className="col">
-          <pre>{JSON.stringify(user, null, 2)}</pre>
-        </article>
-        </section>
-      </>
-    );
+  const handleIniciarSesion = async (e) => {
+    e.preventDefault();
+    await iniciarSesion(form);
   };
-  
-  export default LoginPage;
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  return (
+    <>
+      <header className="row col">
+        <h1>Login Page</h1>
+      </header>
+      <main className="row">
+        <article className="col">
+          <form onSubmit={handleIniciarSesion}>
+            <div className="mb-3">
+              <label htmlFor="inputUserName" className="form-label">
+                User name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="inputUserName"
+                name="user_name"
+                value={form.user_name}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="inputPassword" className="form-label">
+                Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="inputPassword"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Log In
+            </button>
+          </form>
+          {message === "Usuario o contraseña incorrectos" && (
+            <div className="alert alert-info mt-3">{message}</div>
+          )}
+        </article>
+      </main>
+      <section className="row">
+        <article className="col">
+          {Object.keys(user).length > 0 && (
+            <pre>{JSON.stringify(user, null, 2)}</pre>
+          )}
+        </article>
+      </section>
+    </>
+  );
+};
+
+export default LoginPage;

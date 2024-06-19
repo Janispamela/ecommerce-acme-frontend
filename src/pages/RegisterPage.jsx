@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
 import AuthContext from "../context/AuthContext";
+import { useState, useContext, useEffect } from "react";
 
 const initForm = {
   user_name: "",
@@ -7,25 +7,19 @@ const initForm = {
 };
 
 const RegisterPage = () => {
-  const { user, registrarUsuario } = useContext(AuthContext);
-
   const [form, setForm] = useState(initForm);
-  // const [user, setUser] = useState({});
+  const { user, message, registrarUsuario } = useContext(AuthContext);
 
-  const handleInciarSesion = async (e) => {
+  useEffect(() => {
+    // Mostrar el mensaje en la consola si existe
+    if (message) {
+      console.log(message);
+    }
+  }, [message]);
+
+  const handleRegistrarUsuario = async (e) => {
     e.preventDefault();
-
     await registrarUsuario(form);
-
-    // console.log(form);
-
-    // try {
-    //   // const resp = await registerService(form);
-    //   // // console.log(resp.data.data);
-    //   // setUser(resp.data.data);
-    // } catch (error) {
-    //   console.log(error.response.data.msg);
-    // }
   };
 
   const handleChange = (e) => {
@@ -42,7 +36,7 @@ const RegisterPage = () => {
       </header>
       <main className="row">
         <article className="col">
-          <form onSubmit={handleInciarSesion}>
+          <form onSubmit={handleRegistrarUsuario}>
             <div className="mb-3">
               <label htmlFor="inputUserName" className="form-label">
                 User name
@@ -73,11 +67,17 @@ const RegisterPage = () => {
               Create Account
             </button>
           </form>
+          {(message === "Este usuario ya está registrado" ||
+            message === "Usuario registrado") && (
+            <div className="alert alert-info mt-3">{message}</div>
+          )}
         </article>
       </main>
       <section className="row">
         <article className="col">
-          <pre>{JSON.stringify(user, null, 2)}</pre>
+        {Object.keys(user).length > 0 && (
+            <pre>{JSON.stringify(user, null, 2)}</pre>
+          )}
         </article>
       </section>
     </>

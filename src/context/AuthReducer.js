@@ -1,27 +1,29 @@
-const reducer = (globalState, action) => {
-    switch (action.type) {
-      case "INICIAR_SESION":
-        return {
-          ...globalState,
-          user: action.payload,
-        };
-  
-      case "REGISTRAR_USUARIO":
-        return {
-          ...globalState,
-          user: action.payload,
-        };
+const authReducer = (state, action) => {
+  switch (action.type) {
+    case "INICIAR_SESION":
+      return {
+        ...state,
+        user: action.payload,
+      };
+    case "REGISTRAR_USUARIO":
+      return {
+        ...state,
+        user: action.payload,
+      };
+    case "SET_MESSAGE":
+      return {
+        ...state,
+        message: action.payload, // Manejar el estado del mensaje
+      };
+    case "LOGOUT":
+      return {
+        ...state,
+        user: {},
+        message: "",
+      };
+    default:
+      return state;
+  }
+};
 
- 
-      case "LOGOUT":
-        return {
-          ...globalState,
-          user: {},
-        };
-  
-      default:
-        return globalState;
-    }
-  };
-  
-  export default reducer;
+export default authReducer;
