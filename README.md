@@ -2,16 +2,21 @@
 
 This repository contains the frontend and backend code for an eCommerce website built using ReactJS, ExpressJS, and MongoDB. The concept was inspired by the cartoon "Wile E. Coyote and the Road Runner," where Wile E. Coyote's elaborate attempts to capture the Road Runner using ACME products often backfire comically.
 
+<div style="text-align: center;">
+<img width="878" alt="PROYECTO_5" src="https://github.com/Janispamela/ecommerce-acme-frontend/assets/143107714/89d8aadf-b644-49bf-bfbf-e609bcb1b990">
+</div>
+
 ## Instructions
 
 You can log in with the following details:
 - **Username:** Wile E. Coyote
 - **Password:** Nevergiveup
 
+<div style="text-align: center;">
+<img width="194" alt="Wile E  Coyote" src="https://github.com/Janispamela/ecommerce-acme-frontend/assets/143107714/827149ff-73d3-46dc-9ec5-e54892f63689">
+</div>
+
 Alternatively, you can register on the website to purchase products.
-
-<img width="878" alt="PROYECTO_5" src="https://github.com/Janispamela/ecommerce-acme-frontend/assets/143107714/89d8aadf-b644-49bf-bfbf-e609bcb1b990">
-
 
 ## Frontend
 
