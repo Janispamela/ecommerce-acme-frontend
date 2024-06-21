@@ -11,7 +11,7 @@ The concept of this eCommerce website built using ReactJS, ExpressJS, and MongoD
 
 ## Instructions
 
-You can log in with the following details:
+You can access the login page at https://ecommerce-acme-frontend.netlify.app/ using the following credentials:
 - **Username:** Wile E. Coyote
 - **Password:** Nevergiveup
 
