@@ -33,6 +33,12 @@ const ProductPage = () => {
                   Last updated 3 mins ago
                   </small>
                 </p>
+                <button
+                  className="btn btn-warning"
+                  onClick={() => handleAgregarCarrito(product.id)}
+                >
+                  Add to cart
+                </button>
               </div>
             </div>
           </div>
