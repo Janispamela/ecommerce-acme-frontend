@@ -10,13 +10,13 @@ You can log in with the following details:
 
 Alternatively, you can register on the website to purchase products.
 
-![ACME Speed Shop homePage](<img width="878" alt="PROYECTO_5" src="https://github.com/Janispamela/ecommerce-acme-frontend/assets/143107714/304ee157-57c7-4e4f-bc41-ed17497da234">)
+<img width="878" alt="PROYECTO_5" src="https://github.com/Janispamela/ecommerce-acme-frontend/assets/143107714/89d8aadf-b644-49bf-bfbf-e609bcb1b990">
 
 
 ## Frontend
 
 - Simple prototyping and development using ReactJS.
-- Utilization of React Context API for state management.
+- Utilization of React Context API
 - Implemented routes:
   - Home page
   - Checkout process
@@ -37,11 +37,9 @@ The application is deployed and hosted using:
 - Backend: Render
 - Frontend: Netlify
 
-Detailed deployment instructions and configurations are included within the repository.
-
 ## Database
 
-MongoDB is used as the database for storing product information, user profiles, and other relevant data.
+MongoDB is used as the database for storing product information and user profiles.
 
 ## Backend Repository
 
