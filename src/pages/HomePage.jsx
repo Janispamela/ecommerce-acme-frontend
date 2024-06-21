@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "../styles/cardsHomePage.css"; // Importar estilos necesarios
 import "../styles/footerHomePage.css"; // Importar estilos necesarios
 
@@ -6,7 +7,15 @@ const HomePage = () => {
     <>
       <header className="row mb-4">
         <article className="col">
-          <h1>Welcome to "The ACME speed shop"</h1>
+          <section>
+            <h1 className="text-center">Welcome to "The ACME Speed Shop"</h1>
+          </section>
+          <section className="mt-4">
+            <p className="text-center">
+              ACME is 100% committed to supporting you on "The Wild Chase" to catch the Roadrunner. We have everything you need to stay ahead in the race. Your pursuit of the Roadrunner just got faster, smarter, and more exciting with ACME by your side.
+
+            </p>
+          </section>
         </article>
       </header>
  
@@ -38,8 +47,8 @@ const HomePage = () => {
                   <img src="https://i.pinimg.com/originals/58/e6/8a/58e68a5db418d7b1caa7bef6befd9d4e.jpg" className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">ACME Blueprints</h5>
-                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" className="btn btn-primary">Learn More...</a>
+                    <p className="card-text">The Master Plan, with tips to help you win "The Wild Chase"</p>
+                    <NavLink to="/products/66750fc4c5b05b2639fe5bf8" className="btn btn-primary">Learn More...</NavLink>
                   </div>
                 </div>
               </div>
@@ -47,9 +56,9 @@ const HomePage = () => {
                 <div className="card" style={{ border: 'none', boxShadow: 'none' }}>
                   <img src="https://i.pinimg.com/originals/0b/e8/1a/0be81ab8c24827edb35fe8263c896eb3.png" className="card-img-top" alt="..." />
                   <div className="card-body">
-                    <h5 className="card-title">Helicopter</h5>
+                    <h5 className="card-title">ACME Helicopter</h5>
                     <p className="card-text">"Look ma, no rush hour!" - Fly above the desert with our helicopter.</p>
-                    <a href="#" className="btn btn-primary">Learn More...</a>
+                    <NavLink to="/products/66751069c5b05b2639fe5bf9" className="btn btn-primary">Learn More...</NavLink>
                   </div>
                 </div>
               </div>
@@ -60,7 +69,7 @@ const HomePage = () => {
                   <div className="card-body">
                     <h5 className="card-title">Incredible Prices</h5>
                     <p className="card-text">Explore our diverse range of products!.</p>
-                    <a href="#" className="btn btn-primary">View All Products</a>
+                    <NavLink to="/products" className="btn btn-primary">View All Products</NavLink>
                   </div>
                 </div>
               </div>
@@ -75,7 +84,7 @@ const HomePage = () => {
               <div className="card-body">
                 <h5 className="card-title">Be first to see new products and deals!</h5>
                 <p className="card-text">Be among the first to access new limited products. Join our Acme community of over 10,000 members by registering today and receive a 10% discount on your first purchase.</p>
-                <a href="#" className="btn btn-primary">Register</a>
+                <NavLink to="/register" className="btn btn-primary">Register</NavLink>
               </div>
               <div className="card-footer text-body-secondary">
                 
