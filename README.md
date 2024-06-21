@@ -1,6 +1,9 @@
 # The ACME Speed Shop
 
-This repository contains the frontend and backend code for an eCommerce website built using ReactJS, ExpressJS, and MongoDB. The concept was inspired by the cartoon "Wile E. Coyote and the Road Runner," where Wile E. Coyote's elaborate attempts to capture the Road Runner using ACME products often backfire comically.
+For the frontend repository of the application, please visit [ecommerce-acme-frontend](https://github.com/Janispamela/ecommerce-acme-frontend).
+For the backend repository of the application, please visit [ecommerce-acme-backend](https://github.com/Janispamela/ecommerce-acme-backend).
+
+The concept of this eCommerce website built using ReactJS, ExpressJS, and MongoDB was inspired by the cartoon "Wile E. Coyote and the Road Runner," where Wile E. Coyote's elaborate attempts to capture the Road Runner using ACME products often backfire comically.
 
 <div style="text-align: center;">
 <img width="878" alt="PROYECTO_5" src="https://github.com/Janispamela/ecommerce-acme-frontend/assets/143107714/89d8aadf-b644-49bf-bfbf-e609bcb1b990">
@@ -45,10 +48,6 @@ The application is deployed and hosted using:
 ## Database
 
 MongoDB is used as the database for storing product information and user profiles.
-
-## Backend Repository
-
-For the backend repository of the application, please visit [ecommerce-acme-backend](https://github.com/Janispamela/ecommerce-acme-backend).
 
 ## Important Note
 
