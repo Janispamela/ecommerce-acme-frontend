@@ -1,0 +1,9 @@
+/* Estilo para el espacio entre las secciones de tarjetas */
+.card-section {
+  margin-bottom: 20px; /* Espacio inferior entre secciones de tarjetas */
+}
+
+/* Estilo para el espacio sobre el footer */
+.footer-section {
+  margin-top: 20px; /* Espacio superior sobre el footer */
+}

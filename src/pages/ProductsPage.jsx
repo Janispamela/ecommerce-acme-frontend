@@ -15,7 +15,7 @@ const ProductsPage = () => {
 
   return (
       <>
-      <header className="row">
+      <header className="row mb-4">
         <article className="col">
           <h1>List of ACME products</h1>
         </article>
